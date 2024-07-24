@@ -72,6 +72,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *brightnessUp[] = { "brightnessctl","set","10%+","NULL"};
+static const char *brightnessDown[] = { "brightnessctl","set","10%-","NULL"};
 
 /* Control Media Players */
 static const char *medplaypausecmd[] = { "playerctl", "play-pause", NULL };
@@ -87,6 +89,8 @@ static const Key keys[] = {
     { 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+	{ 0,                       XF86XK_MonBrightnessUp,  spawn, {.v = brightnessUp }},
+	{ 0,                       XF86XK_MonBrightnessDown, spawn, {.v =brightnessDown}},
 	{ 0,                       XK_Print, spawn,SHCMD("xfce4-screenshooter") },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
